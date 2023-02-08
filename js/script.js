@@ -2,7 +2,7 @@ function getRandomChoice() {
     return Math.floor((Math.random() * 3) + 1);
 }
 function getComputerChoice() {
-    return getResult(getRandomChoice);
+    return getResult(getRandomChoice());
 }
 function getResult(choice) {
     switch (choice) {
