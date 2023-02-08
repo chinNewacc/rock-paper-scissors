@@ -15,19 +15,31 @@ function getResult(choice) {
 }
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        playerScore++;
         return `{"You Win! ${playerSelection} beats ${computerSelection}"}`
+
     }
     else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        playerScore++;
         return `{"You Win! ${playerSelection} beats ${computerSelection}"}`
     }
     else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        playerScore++;
         return `{"You Win! ${playerSelection} beats ${computerSelection}"}`
+
     }
     else {
+        computerScore++;
         return `{"You Lose! ${computerSelection} beats ${playerSelection}"}`
     }
 }
-let playerSelection = prompt('Please type from the following options: paper, rock, or scissors').toLowerCase();
-let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+let playerScore = 0;
+let computerScore = 0;
+for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt('Please type from the following options: paper, rock, or scissors').toLowerCase();
+    let computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+}
+
+
 
