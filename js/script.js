@@ -35,11 +35,17 @@ function playRound(playerSelection, computerSelection) {
 }
 let playerScore = 0;
 let computerScore = 0;
-for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt('Please type from the following options: paper, rock, or scissors').toLowerCase();
-    let computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt('Please type from the following options: paper, rock, or scissors').toLowerCase();
+        let computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    if (playerScore > computerScore) console.log("Player win");
+    else if (playerScore < computerScore) console.log("Computer win");
+    else console.log("draw");
 }
+
 
 
 
