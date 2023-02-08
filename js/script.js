@@ -28,6 +28,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 let playerSelection = prompt('Please type from the following options: paper, rock, or scissors').toLowerCase();
-let computerSelection = getRandomChoice();
+let computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 
