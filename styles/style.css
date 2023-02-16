@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -10,6 +12,7 @@ body {
 
 .content {
     display: flex;
+    flex: auto;
 }
 
 .left {
@@ -24,4 +27,9 @@ body {
     width: 50%;
     display: flex;
     align-items: center;
+}
+
+.footer {
+    display: flex;
+    align-items: end;
 }
