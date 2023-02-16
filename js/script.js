@@ -14,7 +14,11 @@ function getResult(choice) {
     }
 }
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+    if (playerSelection === computerSelection) {
+        playerScore++; computerScore++;
+        return "Draw";
+    }
+    else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore++;
         return `{"You Win! ${playerSelection} beats ${computerSelection}"}`
 
