@@ -1,5 +1,12 @@
-body {
+/*general*/
+body,
+h2,
+p {
     margin: 0;
+}
+
+h1 {
+    margin-bottom: 0;
 }
 
 img {
@@ -9,12 +16,20 @@ img {
     max-height: 300px;
 }
 
+p {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/*header section*/
 .header {
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 5px;
 }
 
+/*content section*/
 .content {
     display: flex;
     justify-content: space-around;
@@ -26,17 +41,18 @@ img {
     align-items: center;
 }
 
+.center {
+    display: flex;
+    flex-direction: column;
+}
+
 .right {
     flex-direction: column;
     display: flex;
     align-items: center;
 }
 
-.choice {
-    display: flex;
-    justify-content: center;
-}
-
+/*footer section*/
 .footer {
     display: flex;
     align-items: center;
