@@ -20,11 +20,11 @@ function changeScoreBoard() {
     computerScoreText.textContent = computerScore;
     if (playerScore >= 5) {
         isFinish = true;
-        centerText.textContent = 'Player winner';
+        centerText.textContent = 'Player win';
     }
     if (computerScore >= 5) {
         isFinish = true;
-        centerText.textContent = 'Computer winner';
+        centerText.textContent = 'Computer win';
     }
 }
 //main function
