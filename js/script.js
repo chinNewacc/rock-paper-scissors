@@ -2,18 +2,30 @@ let playerScoreText = document.querySelector('#playerScore');
 let computerScoreText = document.querySelector('#computerScore');
 let playerScore = 0;
 let computerScore = 0;
+let centerText = document.querySelector('.center');
+let isFinish = false;
 //add event listener on left img(Player choice)
 let playerSelections = document.querySelectorAll('.playerChoice');
 playerSelections.forEach(element => {
     element.addEventListener('click', (e) => {
         //Call Playround function to judge
-        console.log(playRound(e.target.className, getComputerChoice()));
-        changeScoreBoard();
+        if (!isFinish) {
+            console.log(playRound(e.target.className, getComputerChoice()));
+            changeScoreBoard();
+        }
     });
 });
 function changeScoreBoard() {
     playerScoreText.textContent = playerScore;
     computerScoreText.textContent = computerScore;
+    if (playerScore >= 5) {
+        isFinish = true;
+        centerText.textContent = 'Player winner';
+    }
+    if (computerScore >= 5) {
+        isFinish = true;
+        centerText.textContent = 'Computer winner';
+    }
 }
 //main function
 function getRandomChoice() {
