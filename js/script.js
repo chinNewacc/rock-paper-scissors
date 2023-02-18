@@ -1,13 +1,20 @@
-let playerScore = document.querySelector('#playerScore');
-let computerScore = document.querySelector('#computerScore');
-
+let playerScoreText = document.querySelector('#playerScore');
+let computerScoreText = document.querySelector('#computerScore');
+let playerScore = 0;
+let computerScore = 0;
+//add event listener on left img(Player choice)
 let playerSelections = document.querySelectorAll('.playerChoice');
 playerSelections.forEach(element => {
     element.addEventListener('click', (e) => {
-        //playRound(e.target.className, getComputerChoice);
+        //Call Playround function to judge
         console.log(playRound(e.target.className, getComputerChoice()));
+        changeScoreBoard();
     });
 });
+function changeScoreBoard() {
+    playerScoreText.textContent = playerScore;
+    computerScoreText.textContent = computerScore;
+}
 //main function
 function getRandomChoice() {
     return Math.floor((Math.random() * 3) + 1);
