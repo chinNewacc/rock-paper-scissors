@@ -2,7 +2,7 @@ let playerScoreText = document.querySelector('#playerScore');
 let computerScoreText = document.querySelector('#computerScore');
 let playerScore = 0;
 let computerScore = 0;
-let centerText = document.querySelector('.center');
+let centerText = document.querySelector('.centerText');
 let isFinish = false;
 //add event listener on left img(Player choice)
 let playerSelections = document.querySelectorAll('.playerChoice');
