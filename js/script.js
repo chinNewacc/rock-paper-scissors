@@ -24,7 +24,7 @@ playerSelections.forEach(playerSelection => {
             console.log(e);
             console.log(playRound(e.target.className, computerSelection.firstChild.className));
             changeClickingSize(playerSelection, computerSelection);
-            setTimeout(() => { changeClickingSize(playerSelection, computerSelection) }, 250);
+            setTimeout(() => { changeClickingSize(playerSelection, computerSelection) }, 500);
             changeScoreBoard();
         }
     });
