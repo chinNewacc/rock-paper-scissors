@@ -66,3 +66,12 @@ button {
     justify-content: center;
     height: 75px;
 }
+
+/*etc*/
+.win {
+    background-color: greenyellow;
+}
+
+.lose {
+    background-color: red;
+}

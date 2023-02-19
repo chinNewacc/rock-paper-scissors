@@ -1,10 +1,12 @@
 let playerScoreText = document.querySelector('#playerScore');
 let computerScoreText = document.querySelector('#computerScore');
-let playerScore = 0;
-let computerScore = 0;
 let centerText = document.querySelector('.centerText');
 let isFinish = false;
 const restartButton = document.querySelector('button');
+const body = document.querySelector('body');
+let playerScore = 0;
+let computerScore = 0;
+let playerResult;
 restartButton.addEventListener('click', restart);
 //add event listener on left img(Player choice)
 let playerSelections = document.querySelectorAll('.playerChoice');
@@ -20,14 +22,24 @@ playerSelections.forEach(element => {
 function changeScoreBoard() {
     playerScoreText.textContent = playerScore;
     computerScoreText.textContent = computerScore;
+    if (playerScore >= 5 || computerScore >= 5) computeWhoWin();
+}
+function computeWhoWin() {
+    isFinish = true;
     if (playerScore >= 5) {
-        isFinish = true;
+        playerResult = 'win';
         centerText.textContent = 'Player win';
+        changeBodyColor(playerResult);
+        return;
     }
     if (computerScore >= 5) {
-        isFinish = true;
+        playerResult = 'lose';
         centerText.textContent = 'Computer win';
+        changeBodyColor(playerResult)
     }
+}
+function changeBodyColor(result) {
+    body.classList.toggle(result);
 }
 //main function
 function getRandomChoice() {
@@ -73,6 +85,9 @@ function restart() {
     playerScore = 0;
     computerScore = 0;
     changeScoreBoard();
+    if (playerResult) changeBodyColor(playerResult);
+    isFinish = false;
+    playerResult = undefined;
 }
 //let playerScore = 0;
 //let computerScore = 0;
