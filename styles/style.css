@@ -21,6 +21,10 @@ p {
     font-weight: bold;
 }
 
+button {
+    padding: 25px;
+}
+
 /*header section*/
 .header {
     display: flex;
@@ -44,6 +48,9 @@ p {
 .center {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
 }
 
 .right {

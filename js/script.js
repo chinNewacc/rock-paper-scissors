@@ -4,6 +4,8 @@ let playerScore = 0;
 let computerScore = 0;
 let centerText = document.querySelector('.centerText');
 let isFinish = false;
+const restartButton = document.querySelector('button');
+restartButton.addEventListener('click', restart);
 //add event listener on left img(Player choice)
 let playerSelections = document.querySelectorAll('.playerChoice');
 playerSelections.forEach(element => {
@@ -66,6 +68,11 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         return `{"You Lose! ${computerSelection} beats ${playerSelection}"}`
     }
+}
+function restart() {
+    playerScore = 0;
+    computerScore = 0;
+    changeScoreBoard();
 }
 //let playerScore = 0;
 //let computerScore = 0;
