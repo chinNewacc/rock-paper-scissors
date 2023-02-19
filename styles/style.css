@@ -75,3 +75,9 @@ button {
 .lose {
     background-color: red;
 }
+
+.clicking {
+    transform: scale(1.2);
+    border-color: black;
+    border-width: 2px;
+}

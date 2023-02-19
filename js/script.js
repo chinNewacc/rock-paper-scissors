@@ -2,23 +2,39 @@ let playerScoreText = document.querySelector('#playerScore');
 let computerScoreText = document.querySelector('#computerScore');
 let centerText = document.querySelector('.centerText');
 let isFinish = false;
-const restartButton = document.querySelector('button');
+
 const body = document.querySelector('body');
 let playerScore = 0;
 let computerScore = 0;
 let playerResult;
+
+//add event listener on button
+const restartButton = document.querySelector('button');
 restartButton.addEventListener('click', restart);
+
 //add event listener on left img(Player choice)
-let playerSelections = document.querySelectorAll('.playerChoice');
-playerSelections.forEach(element => {
-    element.addEventListener('click', (e) => {
+let playerSelections = Array.from(document.querySelectorAll('.playerChoice'));
+let computerSelections = Array.from(document.querySelectorAll('.computerChoice'));
+playerSelections.forEach(playerSelection => {
+    playerSelection.addEventListener('click', (e) => {
         //Call Playround function to judge
         if (!isFinish) {
-            console.log(playRound(e.target.className, getComputerChoice()));
+            let computerSelection = computerSelections[getComputerChoice()];
+            console.log(playerSelection);
+            console.log(e);
+            console.log(playRound(e.target.className, computerSelection.firstChild.className));
+            changeClickingSize(playerSelection, computerSelection);
+            setTimeout(() => { changeClickingSize(playerSelection, computerSelection) }, 250);
             changeScoreBoard();
         }
     });
 });
+
+
+function changeClickingSize(playerSelection, computerSelection) {
+    playerSelection.classList.toggle('clicking')
+    computerSelection.classList.toggle('clicking')
+}
 function changeScoreBoard() {
     playerScoreText.textContent = playerScore;
     computerScoreText.textContent = computerScore;
@@ -50,16 +66,14 @@ function getComputerChoice() {
 }
 function getResult(choice) {
     switch (choice) {
-        case 1: return 'rock'
-            break;
-        case 2: return 'paper'
-            break;
-        case 3: return 'scissors'
+        case 1: return 0//'rock'
+        case 2: return 1//'paper'
+        case 3: return 2//'scissors'
     }
 }
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        playerScore++; computerScore++;
+        //playerScore++; computerScore++;
         return "Draw";
     }
     else if (playerSelection === 'rock' && computerSelection === 'scissors') {
