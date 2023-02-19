@@ -20,9 +20,10 @@ playerSelections.forEach(playerSelection => {
         //Call Playround function to judge
         if (!isFinish) {
             let computerSelection = computerSelections[getComputerChoice()];
-            console.log(playerSelection);
-            console.log(e);
-            console.log(playRound(e.target.className, computerSelection.firstChild.className));
+            // console.log(playerSelection);
+            // console.log(e);
+            // console.log(playRound(e.target.className, computerSelection.firstChild.className));
+            changeCenterText(playRound(e.target.className, computerSelection.firstChild.className));
             changeClickingSize(playerSelection, computerSelection);
             setTimeout(() => { changeClickingSize(playerSelection, computerSelection) }, 500);
             changeScoreBoard();
@@ -44,18 +45,21 @@ function computeWhoWin() {
     isFinish = true;
     if (playerScore >= 5) {
         playerResult = 'win';
-        centerText.textContent = 'Player win';
+        changeCenterText('Player win');
         changeBodyColor(playerResult);
         return;
     }
     if (computerScore >= 5) {
         playerResult = 'lose';
-        centerText.textContent = 'Computer win';
+        changeCenterText('Computer win');
         changeBodyColor(playerResult)
     }
 }
 function changeBodyColor(result) {
     body.classList.toggle(result);
+}
+function changeCenterText(text) {
+    centerText.textContent = text;
 }
 //main function
 function getRandomChoice() {
@@ -102,6 +106,7 @@ function restart() {
     if (playerResult) changeBodyColor(playerResult);
     isFinish = false;
     playerResult = undefined;
+    changeCenterText('');
 }
 //let playerScore = 0;
 //let computerScore = 0;
